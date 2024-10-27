@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MultiArchiveLibrary.Types;
 
 namespace MultiArchiveLibrary.Interface
 {
     public interface IArchiver
     {
-        public object GetCreateArchiveOptions();
-        public object GetExtractArchiveOptions();
-        public bool CreateArchive(string createArchiveFilename, Dictionary<string, string> archiveTargetFiles, object createArchiveOptions);
-        public bool ExtractArchive(string extractArchiveFilename, string extractRootDirectory, object extractArchiveOptions);
+        public ConfigObject GetArchiveConfig();
+        public ConfigObject GetExtractConfig();
+        public bool Archive(string archiveName, string rootPath, List<string> targetFiles, ConfigObject config);
+        public bool Extract(string archiveName, string extractRootDirectory, ConfigObject config);
     }
 }
